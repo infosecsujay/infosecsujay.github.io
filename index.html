@@ -1,0 +1,232 @@
+<!--
+Sujay Shinde - Portfolio (Single-file website)
+Instructions (copy this file into a repo named <yourusername>.github.io and push):
+1. Create a GitHub repository named: <your_github_username>.github.io (must be public)
+2. Add this file as index.html at the repository root.
+3. Upload your resume PDF as: Sujay_Shinde_Resume.pdf (or change the link in the header)
+4. Commit & push. GitHub Pages will serve it at https://<your_github_username>.github.io
+
+Replace placeholders: YOUR_NAME, YOUR_EMAIL, YOUR_LINKEDIN, YOUR_PHONE, YOUR_GITHUB_USERNAME
+
+This single-file approach is intentionally portable: you can later split CSS/JS into separate files.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sujay Shinde — Information Security Leader</title>
+  <meta name="description" content="Sujay Shinde — Cybersecurity & OT Security leader. Enterprise security strategy, NIST, IEC 62443, ISO 27001.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#98a0b3;
+      --accent:#6ee7b7;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius:16px;
+      --maxwidth:1100px;
+      color-scheme: dark;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background: linear-gradient(180deg,#07101a 0%, #041026 60%); color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      padding:36px 20px; display:flex; justify-content:center; align-items:flex-start; gap:24px;
+    }
+    .wrap{max-width:var(--maxwidth); width:100%}
+    header{display:flex; gap:24px; align-items:center; justify-content:space-between; margin-bottom:22px}
+    .brand{display:flex; gap:18px; align-items:center}
+    .logo{width:60px; height:60px; border-radius:12px; display:grid; place-items:center; font-weight:800; background:linear-gradient(135deg,#0ea5a4,#60a5fa); color:#021124}
+    .brand h1{font-size:20px;margin:0}
+    .brand p{margin:0; color:var(--muted); font-size:13px}
+    nav{display:flex; gap:12px; align-items:center}
+    .btn{padding:10px 14px; border-radius:12px; background:var(--glass-2); border:1px solid rgba(255,255,255,0.03); color:var(--muted); text-decoration:none; font-size:14px}
+    .hero{display:grid; grid-template-columns:1fr 380px; gap:28px; align-items:stretch;}
+    @media (max-width:900px){ .hero{grid-template-columns:1fr; } .brand h1{font-size:18px} }
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:var(--radius); padding:24px; box-shadow: 0 8px 30px rgba(2,6,23,0.6); border:1px solid rgba(125,140,180,0.03)}
+
+    .hero-left h2{font-size:28px;margin:0 0 6px 0}
+    .hero-left p.lead{margin:0 0 18px 0; color:var(--muted); line-height:1.5}
+
+    .meta{display:flex; gap:12px; flex-wrap:wrap}
+    .chip{background:var(--glass); padding:8px 12px; border-radius:999px; font-weight:600; font-size:13px; color:var(--muted)}
+
+    .cta{display:flex; gap:12px; margin-top:12px}
+    .cta .primary{background:linear-gradient(90deg,#06b6d4,#60a5fa); color:#022233; font-weight:700; border:none}
+
+    .right-hero{display:flex; flex-direction:column; gap:12px}
+    .profile-card{display:flex; flex-direction:column; gap:12px; align-items:center; text-align:center}
+    .avatar{width:120px; height:120px; border-radius:999px; background:linear-gradient(135deg,#111827,#0b1220); display:grid; place-items:center; font-size:36px; font-weight:700; color:var(--accent); border:1px solid rgba(255,255,255,0.03)}
+    .contact{font-size:14px; color:var(--muted)}
+
+    section + section{margin-top:18px}
+
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    @media (max-width:900px){ .grid-3{grid-template-columns:1fr} }
+
+    .project{padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent); border:1px solid rgba(255,255,255,0.02)}
+    .project h3{margin:0 0 8px 0}
+    .project p{margin:0 0 12px 0; color:var(--muted); font-size:14px}
+
+    .skills{display:flex; flex-wrap:wrap; gap:10px}
+    .skill{padding:10px 12px; background:var(--glass); border-radius:10px; font-weight:600; color:var(--muted); font-size:13px}
+
+    .timeline{display:flex; flex-direction:column; gap:10px}
+    .timeline-item{display:flex; gap:12px; align-items:flex-start}
+    .dot{width:12px; height:12px; border-radius:999px; background:var(--accent); margin-top:6px}
+
+    footer{display:flex; justify-content:space-between; gap:12px; margin-top:28px; align-items:center}
+    footer p{margin:0; color:var(--muted)}
+
+    a:hover{opacity:0.95}
+
+    /* subtle entrance */
+    .fade-up{transform:translateY(8px); opacity:0; animation:fadeUp .6s ease forwards}
+    .fade-up.delay{animation-delay:0.12s}
+    @keyframes fadeUp{to{transform:none; opacity:1}}
+
+    /* small print */
+    .muted{color:var(--muted); font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">SS</div>
+        <div>
+          <h1>Sujay Shinde</h1>
+          <p>Information Security • Enterprise & OT Security • Strategy & Transformation</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#awards">Awards</a>
+        <a class="btn" href="#contact">Contact</a>
+        <a class="btn" href="Sujay_Shinde_Resume.pdf" download>Download Resume</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div class="card hero-left fade-up">
+        <h2>Enterprise Information Security Leader</h2>
+        <p class="lead">I help Fortune‑scale organisations secure their IT & OT environments, translate complex cyber risk into board‑level decisions, and deliver measurable remediation roadmaps. Award‑winning delivery across consulting and financial services.</p>
+
+        <div class="meta">
+          <div class="chip">NIST CSF • IEC 62443 • ISO 27001</div>
+          <div class="chip">Claroty xDome • Cloud & SIEM</div>
+          <div class="chip">OT Security • GRC • Risk</div>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="#contact">Hire / Consult</a>
+          <a class="btn" href="#projects">View Projects</a>
+        </div>
+
+        <section id="about" style="margin-top:18px">
+          <h3 style="margin-bottom:8px">About</h3>
+          <p class="muted">Dynamic and results-driven cybersecurity leader with strong experience across IT & OT security, cybersecurity frameworks, and enterprise transformation. Recognised with multiple performance awards and academic honours during MS at State University of New York.</p>
+          <div style="margin-top:12px" class="skills">
+            <div class="skill">Enterprise Cybersecurity Strategy</div>
+            <div class="skill">OT & Industrial Control Security</div>
+            <div class="skill">Risk Assessment & GRC</div>
+            <div class="skill">Python • Data Analysis</div>
+            <div class="skill">Claroty • SIEM • DLP</div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="right-hero">
+        <div class="card profile-card fade-up delay">
+          <div class="avatar">SS</div>
+          <div style="font-weight:700">Sujay Shinde</div>
+          <div class="contact">Lead Solution Advisor — Enterprise Security, Deloitte</div>
+          <div class="muted">Mumbai, India • <a href="mailto:infosecsujay@gmail.com" style="color:var(--accent); text-decoration:none">infosecsujay@gmail.com</a></div>
+          <div style="display:flex; gap:8px; margin-top:10px">
+            <a class="btn" href="https://www.linkedin.com/in/infosec-sujay" target="_blank">LinkedIn</a>
+            <a class="btn" href="Sujay_Shinde_Resume.pdf" download>Resume</a>
+          </div>
+        </div>
+
+        <div class="card fade-up delay">
+          <h4 style="margin:0 0 8px 0">Quick Highlights</h4>
+          <div class="muted">• Led Claroty xDome deployments across hundreds of OT sites. <br>• Performed large scale firewall rule analysis using Python (150k rules). <br>• Authored OT standards aligned with IEC 62443.</div>
+        </div>
+      </aside>
+    </main>
+
+    <section id="projects" class="card fade-up" style="margin-top:18px">
+      <h3>Selected Projects</h3>
+      <div class="grid-3" style="margin-top:12px">
+        <article class="project">
+          <h3>Claroty xDome — Enterprise OT Detection & SRA</h3>
+          <p>Designed and deployed Claroty xDome across hundreds of industrial sites to enable continuous threat detection and secure remote access for OT assets. Implemented OT GRC frameworks and awareness programmes.</p>
+          <p class="muted">Deliverables: Architecture, rollout runbook, training, policy suite.</p>
+        </article>
+
+        <article class="project">
+          <h3>Firewall Rule Analysis & Attack Surface Reduction</h3>
+          <p>Analysed ~150,000 firewall rules using Python & Jupyter Notebooks to identify and remove redundant rules — producing ~8% optimisation and improving overall security posture.</p>
+          <p class="muted">Deliverables: Automated analysis scripts, exec summary, remediation plan.</p>
+        </article>
+
+        <article class="project">
+          <h3>OT Standards & CyberPHA Assessments</h3>
+          <p>Authored OT security standards aligned to ISA/IEC 62443, performed CyberPHA gap assessments and TPRM evaluations to strengthen OT risk management and operational resilience.</p>
+          <p class="muted">Deliverables: Standards, gap analysis, training modules.</p>
+        </article>
+      </div>
+      <p class="muted" style="margin-top:10px">(Project details and achievements are extracted from professional profile and resume.)</p>
+    </section>
+
+    <section id="certs" class="card fade-up">
+      <h3>Certifications & Tools</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px">
+        <div class="skill">AWS Cloud Practitioner</div>
+        <div class="skill">AZ-900 • SC-900</div>
+        <div class="skill">CCSK • Google Associate Cloud Engineer</div>
+        <div class="skill">Claroty CIE • CCA</div>
+        <div class="skill">CISSP / CISM / CCSP (training)</div>
+        <div class="skill">Splunk • QRadar • CrowdStrike</div>
+      </div>
+    </section>
+
+    <section id="awards" class="card fade-up">
+      <h3>Awards & Recognition</h3>
+      <div class="timeline" style="margin-top:12px">
+        <div class="timeline-item"><div class="dot"></div><div><strong>Outstanding Performance Awards</strong><div class="muted">Deloitte (2022, 2024)</div></div></div>
+        <div class="timeline-item"><div class="dot"></div><div><strong>Star & Spot Awards</strong><div class="muted">Willis Towers Watson (multiple years)</div></div></div>
+        <div class="timeline-item"><div class="dot"></div><div><strong>Academic Excellence Award</strong><div class="muted">State University of New York — MS (Honor Roll)</div></div></div>
+      </div>
+    </section>
+
+    <section id="contact" class="card fade-up">
+      <h3>Contact</h3>
+      <p class="muted">Interested in hiring or consulting? Book a quick intro call — I’ll bring practical cyber strategy and delivery plans.</p>
+      <div style="display:flex; gap:12px; margin-top:12px; align-items:center; flex-wrap:wrap">
+        <a class="btn primary" href="mailto:infosecsujay@gmail.com">Email: infosecsujay@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/infosec-sujay" target="_blank">LinkedIn</a>
+        <a class="btn" href="Sujay_Shinde_Resume.pdf" download>Download Resume (PDF)</a>
+      </div>
+    </section>
+
+    <footer>
+      <p class="muted">© Sujay Shinde — Information Security | Built with care</p>
+      <p class="muted">Site powered by a single HTML file (easy to fork on GitHub)</p>
+    </footer>
+  </div>
+
+  <script>
+    // small UI niceties
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click', e=>{e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});}));
+    // reveal fades
+    document.querySelectorAll('.fade-up').forEach((el,i)=>el.style.animationDelay=(i*0.06)+'s');
+  </script>
+</body>
+</html>
