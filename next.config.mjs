@@ -7,14 +7,10 @@ const nextConfig = {
   basePath: `/${repo}`,
   assetPrefix: `/${repo}/`,
 
+  trailingSlash: true,   // 🔑 THIS FIXES GITHUB PAGES ROUTING
+
   images: {
     unoptimized: true,
-  },
-
-  productionBrowserSourceMaps: true,
-
-  typescript: {
-    ignoreBuildErrors: true,
   },
 
   eslint: {
