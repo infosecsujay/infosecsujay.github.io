@@ -5,9 +5,9 @@ const nextConfig = {
   output: 'export',
 
   basePath: `/${repo}`,
-  assetPrefix: `/${repo}/`,
+  trailingSlash: true,
 
-  trailingSlash: true,   // 🔑 THIS FIXES GITHUB PAGES ROUTING
+  distDir: 'docs', // 🔑 THIS IS THE KEY FIX
 
   images: {
     unoptimized: true,
