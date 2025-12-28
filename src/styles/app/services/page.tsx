@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Header from '@/components/common/Header';
-import ServicesInteractive from './components/ServicesInteractive';
+import ServicesInteractive from '@/app/services/components/ServicesInteractive';
 
 export const metadata: Metadata = {
   title: 'Services - CyberShield Pro',
